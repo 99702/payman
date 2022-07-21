@@ -1,0 +1,79 @@
+server:
+  port: 8082
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  main:
+    allow-circular-references: true
+  profiles:
+    active: dev
+
+
+---
+spring:
+  jwt:
+    secret: fvhngvmgvncbnbvnvn987y6trrtyuioiuytrutyiuopiouilyukyjdtfuyuioupioi6u
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: goodbyecruelworld
+    url: jdbc:mysql://localhost:3306/payman-dev
+    username: user
+  jpa:
+    generate-ddl: true
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: Payman for dev team
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: # password is required
+    url: jdbc:mysql://localhost:3306/payman-qa
+    username: root
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: Payman for qa team
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+---
+
+spring:
+  # profiles: prod
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: # password is required
+    url: jdbc:mysql://localhost:3306/payman-prod
+    username: root
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: Production Payman qa
