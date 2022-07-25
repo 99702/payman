@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .disable()
                 .authorizeHttpRequests()
                 .antMatchers(WHITE_LIST_URLS).permitAll()
-                .antMatchers(EMPLOYER_URLS).hasAuthority("employer")
+                .antMatchers(EMPLOYER_URLS).hasAnyAuthority("employer", "god")
                 .antMatchers(GOD_URLS).hasAuthority("god")
 //                .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

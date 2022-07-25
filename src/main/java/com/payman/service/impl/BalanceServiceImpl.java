@@ -11,6 +11,7 @@ import com.payman.repository.AccountRepository;
 import com.payman.repository.BalanceRepository;
 import com.payman.repository.CustomerRepository;
 import com.payman.service.BalanceService;
+import com.payman.service.DepositService;
 import com.payman.utils.AES;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -35,6 +36,9 @@ public class BalanceServiceImpl implements BalanceService {
 
     @Autowired
     BalanceRepository balanceRepository;
+
+    @Autowired
+    DepositService depositService;
 
     @Autowired
     AES aes;
@@ -100,6 +104,23 @@ public class BalanceServiceImpl implements BalanceService {
                balanceOfToCustomer.setBalance(balanceOfToCustomer.getBalance().add(balance));
                balanceRepository.save(balanceOfToCustomer);
            }
+
+
+           // If everything is success we save details to deposit database
+            depositService.depositData(
+                    loggedInCustomerAccount,
+                    accountToBeSent,
+                    balance,
+                    request.getHeader("ip"),
+                    Double.parseDouble(request.getHeader("latitude")),
+                    Double.parseDouble(request.getHeader("longitude")),
+                    request.getHeader("screen"),
+                    request.getHeader("userAgent"),
+                    request.getHeader("clientDateTime"),
+                    request.getHeader("language")
+            );
+
+
 
            // save those to our dto response
             return this.setterForBalanceDepositResponse(loggedInCustomerAccount, accountToBeSent, balance, "success") ;

@@ -25,8 +25,4 @@ public class CustomerController {
     private GetACustomerDetails getACustomerDetails(@PathVariable("acc_no") String accountNumber){
         return customerService.getCustomerFromAccNo(accountNumber);
     }
-
-
-
-
 }

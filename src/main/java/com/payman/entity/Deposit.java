@@ -1,5 +1,6 @@
 package com.payman.entity;
 
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name="deposit")
+@Data
 public class Deposit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,6 @@ public class Deposit {
     @JoinColumn(name="from_fk_account", referencedColumnName = "id")
     private Account from;
     private BigDecimal amount;
-
 
     private String ip;
     private double latitude;
