@@ -22,4 +22,5 @@ public class AuthController {
     private LoginResponseDTO login(@Valid @RequestBody LoginRequestDTO loginRequestDTO, HttpServletRequest request){
        return authService.login(loginRequestDTO, request);
     }
+
 }

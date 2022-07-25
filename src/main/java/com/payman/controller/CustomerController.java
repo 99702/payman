@@ -1,6 +1,7 @@
 package com.payman.controller;
 
 import com.payman.dto.request.RegisterACustomerDTO;
+import com.payman.dto.response.GetACustomerDetails;
 import com.payman.dto.response.RegisterACustomerDTOResponse;
 import com.payman.enumeration.PathConstants;
 import com.payman.service.CustomerService;
@@ -19,4 +20,13 @@ public class CustomerController {
     private RegisterACustomerDTOResponse registerACustomer(@Valid @RequestBody RegisterACustomerDTO registerACustomerDTO){
         return customerService.registerACustomer(registerACustomerDTO);
     }
+
+    @GetMapping(PathConstants.GET_A_CUSTOMER_FROM_ACCOUNT_ID)
+    private GetACustomerDetails getACustomerDetails(@PathVariable("acc_no") String accountNumber){
+        return customerService.getCustomerFromAccNo(accountNumber);
+    }
+
+
+
+
 }

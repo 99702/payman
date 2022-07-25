@@ -25,7 +25,8 @@ public class SecurityConfig {
 
     // god urls
     private static final String[] GOD_URLS= {
-            "/account/list",
+            "/account/all",
+            "/customer/get/*",
     };
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
@@ -40,7 +41,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .antMatchers(WHITE_LIST_URLS).permitAll()
                 .antMatchers(EMPLOYER_URLS).hasAuthority("employer")
-//                .antMatchers(GOD_URLS).hasAuthority("god")
+                .antMatchers(GOD_URLS).hasAuthority("god")
 //                .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

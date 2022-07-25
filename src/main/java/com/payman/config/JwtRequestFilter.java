@@ -1,6 +1,7 @@
 package com.payman.config;
 
 
+import com.payman.errors.PaymanException;
 import com.payman.utils.AES;
 import com.payman.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
@@ -49,13 +50,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                         .parseClaimsJws(jwt)
                         .getBody();
 
-//                // if user is  not enabled throw exception
-//                if(!(Boolean) claims.get("enabled")){
-//                    throw new QuException("User not enabled");
-//                }
             }
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-
                 // get userDetails from loadUserByUsername given Username as email
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
@@ -66,10 +62,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                             .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
                 } else {
+                    throw new PaymanException("Cannot validate");
                 }
             }
             filterChain.doFilter(request, response);
         } catch (Exception e) {
+            throw new PaymanException(e.getMessage());
         }
     }
 
