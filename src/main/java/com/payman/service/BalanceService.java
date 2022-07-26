@@ -9,6 +9,5 @@ import java.math.BigDecimal;
 
 public interface BalanceService {
     BalanceWithdrawResponse withdraw(HttpServletRequest request);
-
     BalanceDepositResponse deposit(HttpServletRequest request, DepositRequestDTO depositRequestDTO, String accountNumber, String mobileNumber);
 }

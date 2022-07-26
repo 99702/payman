@@ -16,4 +16,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query(value="select c.* from customer c inner join account a on a.fk_customer=c.id where a.account_number=:accountNumber", nativeQuery = true)
     Customer fetchByAccountNumber(String accountNumber);
+
+
+    @Query(value="select c.* from customer c inner join account a on a.fk_customer=c.id where a.id=:accountId", nativeQuery = true)
+    Customer fetchByAccountId(Long accountId);
 }

@@ -44,8 +44,6 @@ public class BalanceServiceImpl implements BalanceService {
     AES aes;
 
 
-
-
     @Override
     public BalanceWithdrawResponse withdraw(HttpServletRequest request) {
         return null;
@@ -105,7 +103,6 @@ public class BalanceServiceImpl implements BalanceService {
                balanceRepository.save(balanceOfToCustomer);
            }
 
-
            // If everything is success we save details to deposit database
             depositService.depositData(
                     loggedInCustomerAccount,
@@ -119,8 +116,6 @@ public class BalanceServiceImpl implements BalanceService {
                     request.getHeader("clientDateTime"),
                     request.getHeader("language")
             );
-
-
 
            // save those to our dto response
             return this.setterForBalanceDepositResponse(loggedInCustomerAccount, accountToBeSent, balance, "success") ;
