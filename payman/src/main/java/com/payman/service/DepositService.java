@@ -18,7 +18,8 @@ public interface DepositService {
             String screen,
             String userAgent,
             String clientDateTime,
-            String language
+            String language,
+            String message
     );
 
     List<TransactionHistoryResponseDTO> getTransactionHistory(HttpServletRequest request);

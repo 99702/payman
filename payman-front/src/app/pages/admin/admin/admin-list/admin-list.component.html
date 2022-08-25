@@ -1,0 +1,36 @@
+<div *ngIf="admins">
+  <table mat-table [dataSource]="admins" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="citizenship_number">
+      <th mat-header-cell *matHeaderCellDef> citizenship number </th>
+      <td mat-cell *matCellDef="let element">{{element.citizenshipNo}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef> created_at </th>
+      <td mat-cell *matCellDef="let element">{{element.createdAt | date}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dob">
+      <th mat-header-cell *matHeaderCellDef> Dob </th>
+      <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender ? element.gender : "NA"}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="full_name">
+      <th mat-header-cell *matHeaderCellDef> full name </th>
+      <td mat-cell *matCellDef="let element"> {{element.fullName}} </td> 
+    </ng-container>
+
+ <ng-container >
+  <div class="top" style="float:right;padding-right:3px;padding-top:3px;padding-bottom:3px;">
+    <a mat-raised-button type="" routerLink="/employer/customer/add" color="warn">Add account</a>
+  </div>
+ </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

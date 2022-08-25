@@ -1,0 +1,35 @@
+[11:45:14.894] Global cache location '/home/kali/.cache/typescript/4.7', safe file path '/home/kali/.nvm/versions/node/v18.4.0/lib/node_modules/typescript/lib/typingSafeList.json', types map path /home/kali/.nvm/versions/node/v18.4.0/lib/node_modules/typescript/lib/typesMap.json
+[11:45:14.895] Processing cache location '/home/kali/.cache/typescript/4.7'
+[11:45:14.895] Trying to find '/home/kali/.cache/typescript/4.7/package.json'...
+[11:45:14.896] Loaded content of '/home/kali/.cache/typescript/4.7/package.json': {"private":true,"dependencies":{"types-registry":"^0.1.606"}}
+[11:45:14.896] Loaded content of '/home/kali/.cache/typescript/4.7/package-lock.json'
+[11:45:14.896] Finished processing cache location '/home/kali/.cache/typescript/4.7'
+[11:45:14.896] Process id: 13888
+[11:45:14.896] NPM location: /home/kali/.nvm/versions/node/v18.4.0/bin/npm (explicit '--npmLocation' not  provided)
+[11:45:14.896] validateDefaultNpmLocation: false
+[11:45:14.897] Npm config file: /home/kali/.cache/typescript/4.7/package.json
+[11:45:14.897] Updating types-registry npm package...
+[11:45:14.897] Exec: /home/kali/.nvm/versions/node/v18.4.0/bin/npm install --ignore-scripts types-registry@latest
+[11:45:16.443]     Succeeded. stdout:
+    
+    up to date, audited 2 packages in 1s
+
+found 0 vulnerabilities
+
+[11:45:16.443] Updated types-registry npm package
+[11:54:48.695] Got install request {"projectName":"/dev/null/inferredProject1*","fileNames":[],"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typeAcquisition":{"enable":true,"include":[],"exclude":[]},"unresolvedImports":[],"projectRootPath":"/home/kali/Code/payman/payman-front/src/app/pages/login","kind":"discover"}
+[11:54:48.801] Loaded safelist from types map file '/home/kali/.nvm/versions/node/v18.4.0/lib/node_modules/typescript/lib/typesMap.json'
+[11:54:48.804] Explicitly included types: []
+[11:54:48.809] Inferred typings from unresolved imports: []
+[11:54:48.809] Result: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/kali/Code/payman/payman-front/src/app/pages/login/bower_components","/home/kali/Code/payman/payman-front/src/app/pages/login/node_modules"]}
+[11:54:48.809] Finished typings discovery: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/kali/Code/payman/payman-front/src/app/pages/login/bower_components","/home/kali/Code/payman/payman-front/src/app/pages/login/node_modules"]}
+[11:54:48.812] DirectoryWatcher:: Added:: WatchInfo: /home/kali/Code/payman/payman-front/src/app/pages/login/bower_components
+[11:54:48.817] DirectoryWatcher:: Added:: WatchInfo: /home/kali/Code/payman/payman-front/src/app/pages/login/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[11:54:48.833] Elapsed:: 13.242035999894142ms DirectoryWatcher:: Added:: WatchInfo: /home/kali/Code/payman/payman-front/src/app/pages/login/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[11:54:48.834] DirectoryWatcher:: Added:: WatchInfo: /home/kali/Code/payman/payman-front/src/app/pages/login/node_modules
+[11:54:48.835] DirectoryWatcher:: Added:: WatchInfo: /home/kali/Code/payman/payman-front/src/app/pages/login/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[11:54:48.837] Elapsed:: 0.52490200009197ms DirectoryWatcher:: Added:: WatchInfo: /home/kali/Code/payman/payman-front/src/app/pages/login/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[11:54:48.838] Sending response:
+    {"projectName":"/dev/null/inferredProject1*","typeAcquisition":{"enable":true,"include":[],"exclude":[]},"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typings":[],"unresolvedImports":[],"kind":"action::set"}
+[11:54:48.841] Response has been sent.
+[11:54:48.841] No new typings were requested as a result of typings discovery

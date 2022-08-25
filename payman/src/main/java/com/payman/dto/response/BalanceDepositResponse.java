@@ -10,4 +10,6 @@ public class BalanceDepositResponse {
     private String to_account;
     private BigDecimal balance;
     private String success;
+    private String message;
+
 }

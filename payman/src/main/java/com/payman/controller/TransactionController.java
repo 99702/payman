@@ -15,9 +15,9 @@ import java.util.List;
 public class TransactionController {
     @Autowired
     DepositService depositService;
+
     @GetMapping("history")
     private List<TransactionHistoryResponseDTO> getTransactionHistory(HttpServletRequest request){
-       return depositService.getTransactionHistory(request) ;
+       return depositService.getTransactionHistory(request);
     }
-
 }

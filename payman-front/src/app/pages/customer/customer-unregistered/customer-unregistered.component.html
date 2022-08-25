@@ -1,0 +1,45 @@
+<div *ngIf="customersUnregistered">
+  <table mat-table [dataSource]="customersUnregistered" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="citizenship_number">
+      <th mat-header-cell *matHeaderCellDef> citizenship number </th>
+      <td mat-cell *matCellDef="let element">{{element.citizenshipNo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef> mobile number </th>
+      <td mat-cell *matCellDef="let element">{{element.mobile}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef> created_at </th>
+      <td mat-cell *matCellDef="let element">{{element.createdAt | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dob">
+      <th mat-header-cell *matHeaderCellDef> Dob </th>
+      <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender ? element.gender : "NA"}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="full_name">
+      <th mat-header-cell *matHeaderCellDef> full name </th>
+      <td mat-cell *matCellDef="let element">{{element.fullName}} </td> 
+    </ng-container>
+
+
+<ng-container matColumnDef="actions">
+  <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell>
+  <mat-cell *matCellDef="let row" >
+       <button mat-raised-button color="primary" style="margin-right:3px;">Edit</button>
+  </mat-cell>
+</ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="clicker(row)"></tr>
+  </table>
+</div>

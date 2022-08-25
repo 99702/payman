@@ -1,0 +1,15 @@
+<div>
+  <form (ngSubmit)="addAccount()" [formGroup]="form">
+     <!-- mobile -->
+     <p>
+       <mat-form-field appearance="outline" required>
+	 <mat-label>Mobile number</mat-label>
+	 <input type="text" matInput placeholder="mobile number" formControlName="mobile" hideRequiredMarker readonly>
+       </mat-form-field>
+     </p>
+
+  <div class="button">
+      <button type="submit" mat-raised-button color="warn" >Add Account</button>
+  </div>
+  </form>
+</div>

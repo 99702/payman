@@ -45,19 +45,19 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setPassword(aes.encryptText("AES",passwordEncoder.encode(registerACustomerDTO.getPassword())));
         customer.setGender(registerACustomerDTO.getGender());
         customerRepository.save(customer);
-
         return this.setterForRegisterACustomerDTOResponse("Registered successfully ", "success", customer.getFullName());
     }
-
     @Override
     public GetACustomerDetails getCustomerFromAccNo(String accountNumber) {
         try{
             // get customer from that accountNumber
             Customer customer = customerRepository.fetchByAccountNumber(aes.encryptText("AES", accountNumber));
             //basically if customer doesn't exists
+
             if(customer == null){
                 throw new PaymanException("Customer doesn't exists ");
             }
+
             return this.setterForGetACustomerDetails(customer);
         } catch(Exception e){
             throw new PaymanException(e.getMessage());

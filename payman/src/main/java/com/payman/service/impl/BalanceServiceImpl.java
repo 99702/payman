@@ -1,5 +1,6 @@
 package com.payman.service.impl;
 
+import com.payman.dto.request.BalanceCheckResponse;
 import com.payman.dto.request.DepositRequestDTO;
 import com.payman.dto.response.BalanceDepositResponse;
 import com.payman.dto.response.BalanceWithdrawResponse;
@@ -43,19 +44,18 @@ public class BalanceServiceImpl implements BalanceService {
     @Autowired
     AES aes;
 
-
     @Override
     public BalanceWithdrawResponse withdraw(HttpServletRequest request) {
         return null;
     }
 
-
-
     @Override
     @Transactional
     public BalanceDepositResponse deposit(HttpServletRequest request, DepositRequestDTO depositRequestDTO, String accountNumber, String mobileNumber) {
         BigDecimal balance = depositRequestDTO.getBalance();
+        String message = depositRequestDTO.getMessage();
         String authorizationHeader = request.getHeader("Authorization");
+
         try {
             if(accountNumber != null && mobileNumber != null || accountNumber == null && mobileNumber == null){
                 throw new PaymanException("Something went wrong");
@@ -114,7 +114,8 @@ public class BalanceServiceImpl implements BalanceService {
                     request.getHeader("screen"),
                     request.getHeader("userAgent"),
                     request.getHeader("clientDateTime"),
-                    request.getHeader("language")
+                    request.getHeader("language"),
+                    message
             );
 
            // save those to our dto response
@@ -125,6 +126,23 @@ public class BalanceServiceImpl implements BalanceService {
         }
     }
 
+    @Override
+    public BalanceCheckResponse checkBalance(HttpServletRequest request) {
+        String authorizationHeader = request.getHeader("Authorization");
+        try{
+            String jwt = aes.decryptText("AES", authorizationHeader.substring(7));
+            Claims claims = Jwts.parser()
+                    .setSigningKey(SECRET_KEY)
+                    .parseClaimsJws(jwt)
+                    .getBody();
+            Long checkCustomerId = Long.valueOf((Integer) claims.get("customerId")); // we get customer id of current loggedin user
+            return setterForBalanceCheckResponse(balanceRepository.fetchBalanceByCustomerId(checkCustomerId).getBalance());
+        } catch (Exception e){
+            System.out.println(e);
+            throw new PaymanException("Something went wrong checking balance");
+        }
+    }
+
     private BalanceDepositResponse setterForBalanceDepositResponse(Account fromAccount, Account toAccount, BigDecimal balance, String success) {
        BalanceDepositResponse balanceDepositResponse = new BalanceDepositResponse();
        balanceDepositResponse.setFrom_account(fromAccount.getAccountNumber());
@@ -132,5 +150,11 @@ public class BalanceServiceImpl implements BalanceService {
        balanceDepositResponse.setBalance(balance);
        balanceDepositResponse.setSuccess(success);
        return balanceDepositResponse;
+    }
+
+    private  BalanceCheckResponse setterForBalanceCheckResponse(BigDecimal balance){
+        BalanceCheckResponse balanceCheckResponse = new BalanceCheckResponse();
+        balanceCheckResponse.setBalance(balance);
+        return balanceCheckResponse;
     }
 }

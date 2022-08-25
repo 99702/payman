@@ -1,0 +1,41 @@
+
+.ma-drawer-content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: lightgray;
+}
+
+mat-drawer-container {
+    height: calc(100vh - 65px);
+}
+
+mat-toolbar {
+  background-color:white;
+  border: 1px groove lightgray;
+  border-radius: 9px;
+}
+
+/* .example-container {
+   width: 400px;
+   height: 200px;
+   margin: 10px;
+   border: 1px solid #555;
+   } */
+
+
+mat-drawer{
+  background-color: "black";
+  color: blue;
+  width: 300px;
+  font-size: 2rem;
+  padding-top: 30px;
+}

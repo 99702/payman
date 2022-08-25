@@ -11,4 +11,5 @@ public class TransactionHistoryResponseDTO {
     private String to;
 //    private String ago;
     private String clientDateTime;
+    private String message;
 }

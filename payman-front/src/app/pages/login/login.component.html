@@ -1,0 +1,34 @@
+<div>
+<mat-card>
+  <mat-card-title></mat-card-title>
+<mat-card-content>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+     <p *ngIf="error.status" class="error">
+          {{ error.message }}
+     </p>
+
+    <p>
+     <mat-form-field appearance="outline" >
+     <mat-label>Enter your Mobile number</mat-label>
+       <input type="text" matInput placeholder="Mobile number" formControlName="mobile" hideRequiredMarker >
+     <mat-error *ngIf="form.get('mobile')?.invalid">{{getErrorMessage()}}</mat-error>
+     </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="outline">
+    <mat-label>Enter your password</mat-label>
+    <input type="password" matInput placeholder="Password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" hideRequiredMarker>
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">      <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon> </button>
+      <mat-error *ngIf="form.get('password')?.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </p>
+    <a href="">Forgot password? Click here</a>
+    <div class="button">
+      <button type="submit" mat-raised-button color="warn" [disabled]="!checkFormValidation()">Login</button>
+    </div>
+  </form>
+</mat-card-content>
+<a routerLink="/register" color="warn" mat-raised-button style="width:100%">Register your account here</a>
+</mat-card>
+</div>

@@ -35,4 +35,6 @@ public class Deposit {
     @ManyToOne
     @JoinColumn(name="to_fk_account", referencedColumnName = "id")
     private Account to;
+
+    private String message;
 }

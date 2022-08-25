@@ -1,0 +1,16 @@
+.toolbar{
+  display : flex;
+  justify-content:center;
+}
+
+.toolbar img{
+  height: 300px;
+}
+
+.mat-divider{
+  color: blue;
+  /*   background-color: pink; */
+  /*   border-width: 1px; */
+  /*   border-style: solid; */
+
+}

@@ -44,7 +44,7 @@ public class DepositServiceImpl implements DepositService {
 
     @Override
     public void depositData(Account from, Account to, BigDecimal amount, String ip, double latitude, double longitude, String screen, String userAgent, String clientDateTime,
-            String language) {
+        String language, String message) {
         Deposit deposit = new Deposit();
         deposit.setFrom(from);
         deposit.setTo(to);
@@ -56,6 +56,7 @@ public class DepositServiceImpl implements DepositService {
         deposit.setScreen(screen);
         deposit.setUserAgent(userAgent);
         deposit.setClientDateTime(clientDateTime);
+        deposit.setMessage(message);
         depositRepository.save(deposit);
     }
 
@@ -74,7 +75,6 @@ public class DepositServiceImpl implements DepositService {
         Long checkCustomerId = Long.valueOf((Integer) claims.get("customerId"));
         Account loggedInCustomerAccount = accountRepository.fetchByCustomerId(checkCustomerId);
 
-
         return setterForTransactionHistoryResponseDTO(depositRepository.getAllDepositFrom(loggedInCustomerAccount.getId()));
     }
 
@@ -86,6 +86,7 @@ public class DepositServiceImpl implements DepositService {
             transactionHistoryResponseDTO.setFrom(aes.decryptText("AES",customerRepository.fetchByAccountNumber(d.getFrom().getAccountNumber()).getMobile()));
             transactionHistoryResponseDTO.setTo(aes.decryptText("AES",customerRepository.fetchByAccountNumber(d.getTo().getAccountNumber()).getMobile()));
             transactionHistoryResponseDTO.setClientDateTime(d.getClientDateTime());
+            transactionHistoryResponseDTO.setMessage(d.getMessage());
             transactionHistoryResponseDTOList.add(transactionHistoryResponseDTO);
             // get minutes/seconds ago
 //            Instant now = Instant.now();  // Capture the current moment as seen in UTC.

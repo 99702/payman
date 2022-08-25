@@ -25,14 +25,12 @@ public class TrackingInterceptor implements HandlerInterceptor {
         } catch (Exception e){
             throw  new PaymanException(e.getMessage());
         }
-
         return true;
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
     }
-
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);

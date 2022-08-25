@@ -20,13 +20,14 @@ public class SecurityConfig {
 
     // employers urls
     private static final String[] EMPLOYER_URLS= {
-            "/account/register/*",
+            "/account/register/*"
     };
 
     // god urls
     private static final String[] GOD_URLS= {
             "/account/all",
             "/customer/get/*",
+            "/stats/*",
     };
     @Autowired
     private JwtRequestFilter jwtRequestFilter;

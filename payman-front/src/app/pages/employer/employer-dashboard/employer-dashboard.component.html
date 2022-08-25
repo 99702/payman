@@ -1,0 +1,18 @@
+<mat-toolbar>
+  
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" #sidebar>
+  <mat-drawer mode="side" opened>
+  <mat-selection-list [multiple]="false">
+  <mat-list-option routerLink="customer/unregistered"> Customer (Without Accounts)</mat-list-option>
+  <mat-list-option routerLink="customer/registered"> Customer (With Accounts)</mat-list-option>
+  </mat-selection-list>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="content">
+      <app-main></app-main>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

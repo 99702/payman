@@ -1,0 +1,20 @@
+<mat-toolbar>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" #sidebar>
+  <mat-drawer mode="side" opened>
+  <mat-selection-list [multiple]="false">
+  <mat-list-option > Statistics </mat-list-option>
+  <mat-list-option routerLink="customer/list"> Customer </mat-list-option>
+  <mat-list-option routerLink="employer/list"> Employer </mat-list-option>
+  <mat-list-option routerLink="admin/list"> Admin </mat-list-option>
+  </mat-selection-list>
+  
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div class="content">
+      <app-main></app-main>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

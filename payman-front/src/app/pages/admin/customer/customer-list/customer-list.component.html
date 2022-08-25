@@ -1,0 +1,47 @@
+<div>
+  <div class="top" style="float:right;padding-right:3px;padding-top:3px;padding-bottom:3px;">
+  <a mat-raised-button type="" routerLink="/employer/customer/add" color="warn">Add Customer</a>
+</div>
+
+<div *ngIf="customers">
+<table mat-table [dataSource]="customers" class="mat-elevation-z8">
+    <ng-container matColumnDef="account_number">
+    <th mat-header-cell *matHeaderCellDef>account number</th>
+    <td mat-cell *matCellDef="let element"> {{element.account_number}} </td>
+  </ng-container>
+ 
+    <ng-container matColumnDef="balance">
+    <th mat-header-cell *matHeaderCellDef> balance </th>
+    <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+  </ng-container>
+ 
+    <ng-container matColumnDef="citizenship_number">
+    <th mat-header-cell *matHeaderCellDef> citizenship numbeer </th>
+    <td mat-cell *matCellDef="let element"> {{element.citizeship_number}} </td>
+  </ng-container>
+ 
+    <ng-container matColumnDef="dob">
+    <th mat-header-cell *matHeaderCellDef> Dob </th>
+    <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+  </ng-container>
+ 
+    <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef> gender </th>
+    <td mat-cell *matCellDef="let element"> {{element.gender ? element.gender : "NA"}} </td>
+  </ng-container>
+ 
+    <ng-container matColumnDef="mobile">
+    <th mat-header-cell *matHeaderCellDef> mobile </th>
+    <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+  </ng-container>
+ 
+    <ng-container matColumnDef="full_name">
+    <th mat-header-cell *matHeaderCellDef> full name </th>
+    <td mat-cell *matCellDef="let element"> {{element.full_name}} </td>
+  </ng-container>
+
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+</div>
