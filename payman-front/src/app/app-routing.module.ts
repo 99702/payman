@@ -5,8 +5,13 @@ import { AdminListComponent } from './pages/admin/admin/admin-list/admin-list.co
 import { CustomerAddComponent } from './pages/admin/customer/customer-add/customer-add.component';
 import { CustomerListComponent } from './pages/admin/customer/customer-list/customer-list.component';
 import { EmployerListComponent } from './pages/admin/employer/employer-list/employer-list.component';
+import { BalanceTransferComponent } from './pages/customer/balance-transfer/balance-transfer.component';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
+import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component';
 import { CustomerUnregisteredComponent } from './pages/customer/customer-unregistered/customer-unregistered.component';
+import { LoginHistoryComponent } from './pages/customer/login-history/login-history.component';
+import { TransactionHistoryComponent } from './pages/customer/transaction-history/transaction-history.component';
+import { CustomerDetailsComponent } from './pages/employer/customer-details/customer-details.component';
 import { CustomerAddAccountComponent } from './pages/employer/customer/customer-add-account/customer-add-account.component';
 import { EmployerDashboardComponent } from './pages/employer/employer-dashboard/employer-dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -33,12 +38,19 @@ const routes: Routes = [
 
     {
         path: "dashboard", component: CustomerDashboardComponent, canActivate: [CustomerGuard, AuthenticatedGuard],
+        children: [
+            { path: "", component: BalanceTransferComponent },
+            { path: "profile", component: CustomerProfileComponent },
+            { path: "transaction/history", component: TransactionHistoryComponent },
+            { path: "login/history", component: LoginHistoryComponent }
+        ]
     },
 
     {
         path: "employer", component: EmployerDashboardComponent, canActivate: [EmployerGuard, AuthenticatedGuard],
         children: [
             { path: "customer/registered", component: CustomerListComponent },
+            { path: "customer/registered/detail/:accNo", component: CustomerDetailsComponent },
             { path: "customer/add", component: CustomerAddComponent },
 
             { path: "customer/unregistered", component: CustomerUnregisteredComponent },

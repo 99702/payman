@@ -1,0 +1,74 @@
+<div>
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+
+    <form [formGroup]="form" (ngSubmit)="updateCustomer()"> <!---->
+     <p *ngIf="error.status" class="error">
+          {{ error.message }}
+     </p>
+
+     <!-- fullname -->
+     <p>
+       <mat-form-field appearance="outline" required>
+	 <mat-label>Enter your full name</mat-label>
+	 <input type="text" matInput placeholder="Full name" formControlName="fullName" hideRequiredMarker >
+	 <mat-error *ngIf="form.get('fullName')?.invalid">{{getErrorMessage()}}</mat-error>
+       </mat-form-field>
+     </p>
+
+
+
+    <!-- citizenship number  -->
+    <p>
+    <mat-form-field appearance="outline" required>
+    <mat-label>Enter citizenship number</mat-label>
+       <input type="text" matInput placeholder="citizenship number" formControlName="citizenshipNo" hideRequiredMarker>
+     <mat-error *ngIf="form.get('citizenshipNo')?.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    </p>
+
+
+    <!-- dob -->
+    <p>
+    <mat-form-field appearance="outline" required>
+    <mat-label>Date of birth</mat-label>
+    <input type="text" matInput placeholder="Date of birth" formControlName="dob" [matDatepicker]="picker">
+    <mat-error *ngIf="form.get('dob')?.invalid">{{getErrorMessage()}}</mat-error>
+     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </p>
+
+    <!-- province -->
+    <p>
+    <mat-form-field appearance="outline" required>
+      <mat-label>Enter your province</mat-label>
+      <mat-select  formControlName="province" require>
+	<mat-option value="0">province 1</mat-option>
+	<mat-option value="1">province 2</mat-option>
+	<mat-option value="2">province 3</mat-option>
+	<mat-option value="3">province 4</mat-option>
+	<mat-option value="4">province 5</mat-option>
+      </mat-select>
+     <mat-error *ngIf="form.get('province')?.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    </p>
+
+    <!-- password --> 
+    <p>
+    <mat-form-field appearance="outline" required>
+    <mat-label>Enter your password</mat-label>
+    <input type="password" matInput placeholder="Password" formControlName="passwordCheck" [type]="hidePassword ? 'password' : 'text'" hideRequiredMarker>
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">      <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon> </button>
+     <mat-error *ngIf="form.get('passwordCheck')?.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    </p>
+
+ <div class="button">
+     <button type="submit" mat-raised-button color="warn" [disabled]="!checkormValidation()">Update</button>
+ </div>
+</form>
+</mat-card-content>
+</mat-card>
+</div>

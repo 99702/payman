@@ -15,7 +15,6 @@ export class CustomerUnregisteredComponent implements OnInit {
     constructor(private customer: CustomerService, private router: Router) {
         this.customer.getAllCustomerUnregistered().subscribe(
             (data: any) => {
-                console.log(data)
                 this.customersUnregistered = data;
             }
         )

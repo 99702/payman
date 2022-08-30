@@ -1,0 +1,9 @@
+<h1 mat-dialog-title class=" text-red-900">Are you sure?</h1>
+<div mat-dialog-content class="text-2xl ">
+  Would you like to transfer <code class="text-rose-500">Rs.{{this.data.balance}}</code> to  <span class="text-rose-600">+977{{this.data.to}} </span>  
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close mat-raised-button color="secondary" (click)="close()">No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial mat-raised-button color="warn" (click)="yes()">Confirm</button>
+</div>

@@ -1,0 +1,66 @@
+<div class="flex flex-col" style="height: 100vh">
+  <div>
+    <h1>Your balance: {{currentBalance}}</h1>
+    <hr/>
+  </div>
+    <div class="container max-w-lg mx-auto flex-1 flex flex-col items-center px-2 pt-39">
+      <form class="bg-white px-6 py-8 rounded shadow-md text-black w-full" [formGroup]="form" (ngSubmit)="openDialog()">
+        <h1 class="mb-8 text-3xl text-center">Send Balance</h1>
+	<p>
+	  <mat-form-field appearance="outline" style="width:100%">
+            <mat-label>User Mobile number</mat-label>
+            <input
+	      matInput
+              type="text"
+              formControlName="from" 
+              name="Your Account number"
+              placeholder="From"
+	      [readonly]="true"
+	    />
+	    <mat-error *ngIf="form.get('from')?.invalid">{{getErrorMessage()}}</mat-error>
+	   </mat-form-field>
+        </p>
+	<p>
+	  <mat-form-field appearance="outline" style="width:100%">
+            <input
+	      matInput
+              type="text"
+	      formControlName="to"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              placeholder="To (Mobile number)" />
+	    <mat-error *ngIf="form.get('to')?.invalid">{{getErrorMessage()}}</mat-error>
+	   </mat-form-field>
+        </p>
+
+	<p>
+	  <mat-form-field appearance="outline" style="width:100%">
+            <input
+	      matInput
+              type="text"
+	      formControlName="balance"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              placeholder="Balance"/>
+	    <mat-error *ngIf="form.get('balance')?.invalid">{{getErrorMessage()}}</mat-error>
+	   </mat-form-field>
+        </p>
+
+	<p>
+	  <mat-form-field appearance="outline" style="width:100%">
+            <input
+	      matInput
+              type="text"
+	      formControlName="message"
+              class="block border border-grey-light w-full p-3 rounded mb-4"
+              placeholder="Message" />
+	    <mat-error *ngIf="form.get('message')?.invalid">{{getErrorMessage()}}</mat-error>
+	   </mat-form-field>
+        </p>
+
+            <button
+                type="submit"
+              class="w-full text-center py-3 rounded bg-green hover:bg-green-dark focus:outline-none my-1" mat-raised-button color="primary"
+              [disabled]="!checkFormValidation()"
+            >Send balance</button>
+        </form>
+    </div>
+</div>

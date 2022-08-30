@@ -51,6 +51,22 @@ export class LoginService {
 
     // also save userDetails to sessionStorage
     public setUser(user: any) {
+        if (user.province == "PROVINCE_1") {
+            user.province = "0"
+        }
+
+        if (user.province == "PROVINCE_2") {
+            user.province = "1"
+        }
+        if (user.province == "PROVINCE_3") {
+            user.province = "2"
+        }
+        if (user.province == "PROVINCE_4") {
+            user.province = "3"
+        }
+        if (user.province == "PROVINCE_5") {
+            user.province = "4"
+        }
         sessionStorage.setItem('user', JSON.stringify(user))
     }
 
@@ -83,5 +99,10 @@ export class LoginService {
             ip = res.ip;
         });
         return ip;
+    }
+
+    // get login history of loggedin user
+    public getLoginHistory() {
+        return this.http.get(`${baseUrl}/auth/history`);
     }
 }

@@ -78,10 +78,7 @@ export class LoginComponent implements OnInit {
                         console.log(error)
                     }
                 )
-                console.log("---------------------------------")
                 console.log("success")
-                console.log(data)
-                console.log("---------------------------------")
             },
 
             (error: any) => {

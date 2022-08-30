@@ -55,11 +55,16 @@ public class BalanceServiceImpl implements BalanceService {
         BigDecimal balance = depositRequestDTO.getBalance();
         String message = depositRequestDTO.getMessage();
         String authorizationHeader = request.getHeader("Authorization");
-
         try {
             if(accountNumber != null && mobileNumber != null || accountNumber == null && mobileNumber == null){
                 throw new PaymanException("Something went wrong");
             }
+
+            // check if value is less than or equal to zero ... Reject it
+            if(balance.signum() == -1 || balance.signum() == 0){
+                throw new PaymanException("Please enter valid balance");
+            }
+
 
             // Account No that we want to send our balance
             Account accountToBeSent = mobileNumber == null ? accountRepository.fetchByAccountNo(accountNumber) : accountRepository.fetchByMobileNumber(aes.encryptText("AES", mobileNumber));

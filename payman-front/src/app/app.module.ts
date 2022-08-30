@@ -34,6 +34,13 @@ import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/
 import { RegisterComponent } from './pages/register/register.component';
 import { CustomerUnregisteredComponent } from './pages/customer/customer-unregistered/customer-unregistered.component';
 import { CustomerAddAccountComponent } from './pages/employer/customer/customer-add-account/customer-add-account.component';
+import { BalanceTransferComponent } from './pages/customer/balance-transfer/balance-transfer.component';
+import { TransactionHistoryComponent } from './pages/customer/transaction-history/transaction-history.component';
+import { LoginHistoryComponent } from './pages/customer/login-history/login-history.component';
+import { DialogComponent } from './pages/customer/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CustomerDetailsComponent } from './pages/employer/customer-details/customer-details.component';
+import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component'
 
 @NgModule({
     declarations: [
@@ -52,9 +59,16 @@ import { CustomerAddAccountComponent } from './pages/employer/customer/customer-
         RegisterComponent,
         CustomerUnregisteredComponent,
         CustomerAddAccountComponent,
+        BalanceTransferComponent,
+        TransactionHistoryComponent,
+        LoginHistoryComponent,
+        DialogComponent,
+        CustomerDetailsComponent,
+        CustomerProfileComponent,
     ],
 
     imports: [
+        MatDialogModule,
         BrowserModule,
         MatTableModule,
         AppRoutingModule,
@@ -76,7 +90,9 @@ import { CustomerAddAccountComponent } from './pages/employer/customer/customer-
         MatSelectModule,
         MatSnackBarModule
     ],
-    providers: [authInterceptorProviders],
+    providers: [
+        authInterceptorProviders,
+    ],
     bootstrap: [AppComponent]
 })
 

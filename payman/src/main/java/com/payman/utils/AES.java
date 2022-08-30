@@ -2,7 +2,6 @@ package com.payman.utils;
 
 import com.payman.errors.PaymanException;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

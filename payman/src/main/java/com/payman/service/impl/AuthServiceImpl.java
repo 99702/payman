@@ -2,6 +2,7 @@ package com.payman.service.impl;
 
 import com.payman.dto.request.LoginRequestDTO;
 import com.payman.dto.response.CurrentUserResponseDTO;
+import com.payman.dto.response.LoginHistoryResponse;
 import com.payman.dto.response.LoginResponseDTO;
 import com.payman.entity.Customer;
 import com.payman.entity.Ip;
@@ -21,6 +22,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -87,6 +90,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public CurrentUserResponseDTO getCurrentLoggedinUser(HttpServletRequest request) {
+
         // get customer id of currently loggedin user
         String authorizationHeader = request.getHeader("Authorization");
         try{
@@ -101,6 +105,25 @@ public class AuthServiceImpl implements AuthService {
             System.out.println(e);
             throw new PaymanException("Cannot get the current user");
         }
+    }
+
+    @Override
+    public List<LoginHistoryResponse> getLoginHistory(HttpServletRequest request) {
+        // get customer id of currently loggedin user
+        String authorizationHeader = request.getHeader("Authorization");
+        try{
+            String jwt = aes.decryptText("AES", authorizationHeader.substring(7));
+            Claims claims = Jwts.parser()
+                    .setSigningKey(SECRET_KEY)
+                    .parseClaimsJws(jwt)
+                    .getBody();
+            Long checkCustomerId = Long.valueOf((Integer) claims.get("customerId")); // we get customer id of current loggedin user
+            return this.setterForLoginHistory(customerRepository.getCustomerLoginHistory(checkCustomerId));
+        } catch (Exception e){
+            System.out.println(e);
+            throw new PaymanException("Cannot get the current user");
+        }
+
 
     }
 
@@ -120,6 +143,18 @@ public class AuthServiceImpl implements AuthService {
         currentUserResponseDTO.setCitizenshipNo(customer.getCitizenshipNo());
         currentUserResponseDTO.setCreatedAt(customer.getCreatedAt());
         currentUserResponseDTO.setType(customer.getType());
+        currentUserResponseDTO.setDob(customer.getDob());
         return currentUserResponseDTO;
+    }
+
+    private List<LoginHistoryResponse> setterForLoginHistory(List<Ip> ips){
+        List<LoginHistoryResponse> loginHistoryResponses = new ArrayList<>();
+        for(Ip ip: ips){
+            LoginHistoryResponse loginHistoryResponse = new LoginHistoryResponse();
+            loginHistoryResponse.setAddress(ip.getAddress());
+            loginHistoryResponse.setCreatedAt(ip.getCreatedAt());
+            loginHistoryResponses.add(loginHistoryResponse);
+        }
+        return loginHistoryResponses;
     }
 }

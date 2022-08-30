@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CustomerDetailDto } from '../dto/CustomerDetailDto';
 import { CustomerListDto } from '../dto/CustomerListDto';
+import { CustomerUpdateRequestDto } from '../dto/CustomerUpdateRequestDto';
 import baseUrl from './helper';
 
 @Injectable({
@@ -31,5 +33,15 @@ export class CustomerService {
     //register a customer
     public registerCustomer(customerRegisterData: any) {
         return this.http.post(`${baseUrl}/customer/register`, customerRegisterData);
+    }
+
+    // get customer by account number
+    public getCustomerByAccountNumber(accNo: any) {
+        return this.http.get<CustomerDetailDto>(`http://localhost:8082/customer/get/${accNo}`);
+    }
+
+    // update customer
+    public updateCustomer(customerUpdateRequest: CustomerUpdateRequestDto) {
+        return this.http.post(`http://localhost:8082/customer/update`, customerUpdateRequest);
     }
 }

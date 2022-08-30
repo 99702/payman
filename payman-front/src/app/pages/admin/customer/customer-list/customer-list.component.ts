@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { CustomerListDto } from 'src/app/dto/CustomerListDto';
 import { CustomerService } from 'src/app/services/customer.service';
 
@@ -10,16 +11,20 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class CustomerListComponent implements OnInit {
     customers = new Array<any>();
-    displayedColumns: string[] = ['account_number','balance','citizenship_number','dob','gender', 'mobile','full_name'];
-    constructor(private customer: CustomerService) {
-         this.customer.getAllCustomer().subscribe(
-            (data : CustomerListDto[]) => {
+    displayedColumns: string[] = ['account_number', 'balance', 'citizenship_number', 'dob', 'gender', 'mobile', 'full_name'];
+    constructor(private customer: CustomerService, private router: Router) {
+        this.customer.getAllCustomer().subscribe(
+            (data: CustomerListDto[]) => {
                 this.customers = data;
             }
-         )
-     }
+        )
+    }
 
     ngOnInit(): void {
 
-     }
+
+    }
+    clicker(row: any) {
+        this.router.navigate([`/employer/customer/registered/detail/${row.account_number}`]);
+    }
 }

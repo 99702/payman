@@ -1,6 +1,5 @@
 package com.payman.dto.response;
 
-import com.payman.enumeration.Gender;
 import lombok.Data;
 
 import java.math.BigDecimal;

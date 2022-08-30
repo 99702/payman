@@ -2,7 +2,6 @@ package com.payman.service.impl;
 
 import com.payman.dto.response.TransactionHistoryResponseDTO;
 import com.payman.entity.Account;
-import com.payman.entity.Customer;
 import com.payman.entity.Deposit;
 import com.payman.repository.AccountRepository;
 import com.payman.repository.CustomerRepository;
@@ -17,9 +16,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 

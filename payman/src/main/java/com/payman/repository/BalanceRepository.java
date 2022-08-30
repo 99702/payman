@@ -1,6 +1,5 @@
 package com.payman.repository;
 
-import com.payman.entity.Account;
 import com.payman.entity.Balance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

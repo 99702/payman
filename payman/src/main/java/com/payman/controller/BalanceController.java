@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/balance")
+@CrossOrigin("*")
 public class BalanceController {
     @Autowired
     BalanceService balanceService;

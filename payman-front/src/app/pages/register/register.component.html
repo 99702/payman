@@ -51,7 +51,6 @@
     <p>
     <mat-form-field appearance="outline" required>
       <mat-label>gender</mat-label>
-      <!-- <mat-select  [(value)]="gender" required> -->
       <mat-select formControlName="gender">
 	<mat-option value="0">Rather not say</mat-option>
 	<mat-option value="1">Male</mat-option>
@@ -78,7 +77,7 @@
     <p>
     <mat-form-field appearance="outline" required>
       <mat-label>Enter your province</mat-label>
-      <mat-select  formControlName="province" required>
+      <mat-select  formControlName="province" require>
 	<mat-option value="0">province 1</mat-option>
 	<mat-option value="1">province 2</mat-option>
 	<mat-option value="2">province 3</mat-option>
@@ -95,20 +94,6 @@
   </form>
 </mat-card-content>
 
-<a routerLink="/login" color="warn" mat-raised-button style="width:100%">Already have account? Login Here</a>
+<a routerLink="/login" color="warn" mat-raised-button style="width:100%">Already have account? Login Here 🙃</a>
 </mat-card>
 </div>
-
-<!--
-{
-
-"fullName":"cream khan",
-"password":"ThisissomethingSecret",
-"citizenshipNo":"233414/134",
-"mobile":"0123456787",
-"dob":"2000-01-01",
-"province":2,
-     "gender":2
-
-}
--->

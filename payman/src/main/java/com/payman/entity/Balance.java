@@ -17,6 +17,5 @@ public class Balance {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_account", referencedColumnName = "id", unique = true)
     private Account account;
-
     private BigDecimal balance = new BigDecimal(0);
 }

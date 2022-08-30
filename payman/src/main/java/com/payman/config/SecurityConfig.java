@@ -20,13 +20,13 @@ public class SecurityConfig {
 
     // employers urls
     private static final String[] EMPLOYER_URLS= {
-            "/account/register/*"
+            "/account/register/*",
+            "/customer/get/*",
     };
 
     // god urls
     private static final String[] GOD_URLS= {
             "/account/all",
-            "/customer/get/*",
             "/stats/*",
     };
     @Autowired
@@ -43,7 +43,7 @@ public class SecurityConfig {
                 .antMatchers(WHITE_LIST_URLS).permitAll()
                 .antMatchers(EMPLOYER_URLS).hasAnyAuthority("employer", "god")
                 .antMatchers(GOD_URLS).hasAuthority("god")
-//                .anyRequest().authenticated()
+//               .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();

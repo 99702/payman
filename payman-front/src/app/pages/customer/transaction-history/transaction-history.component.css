@@ -1,0 +1,10 @@
+.dash {
+  height: calc(100vh - 98px);
+  /*     display: flex; */
+  /*     justify-content: center; */
+  font-size: 2rem;
+  /*     color: lightgray; */
+}
+table{
+  width: 100%;
+}

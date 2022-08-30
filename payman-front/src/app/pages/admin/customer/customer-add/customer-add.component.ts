@@ -31,7 +31,5 @@ export class CustomerAddComponent implements OnInit {
     }
 
     addCustomer() {
-
     }
-
 }

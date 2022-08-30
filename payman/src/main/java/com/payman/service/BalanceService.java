@@ -6,7 +6,6 @@ import com.payman.dto.response.BalanceDepositResponse;
 import com.payman.dto.response.BalanceWithdrawResponse;
 
 import javax.servlet.http.HttpServletRequest;
-import java.math.BigDecimal;
 
 public interface BalanceService {
     BalanceWithdrawResponse withdraw(HttpServletRequest request);

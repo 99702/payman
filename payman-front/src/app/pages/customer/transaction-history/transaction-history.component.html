@@ -1,0 +1,31 @@
+<div class="dash" >
+<ng-template [ngIf]="transactionHistories.length" [ngIfElse]="t2">
+<br/>
+<div *ngIf="transactionHistories">
+<table mat-table  [dataSource]="transactionHistories">
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef>Amount</th>
+      <td mat-cell *matCellDef="let element">{{element.amount}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="to">
+      <th mat-header-cell *matHeaderCellDef>To</th>
+      <td mat-cell *matCellDef="let element">{{element.to}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.clientDateTime}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="message">
+      <th mat-header-cell *matHeaderCellDef> Message </th>
+      <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row mat-ripple *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+  </ng-template>
+  <ng-template #t2>0 transactions done yet</ng-template>
+</div>

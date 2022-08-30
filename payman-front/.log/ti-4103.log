@@ -1,0 +1,19 @@
+[14:36:41.870] Global cache location '/home/kali/.cache/typescript/4.7', safe file path '/home/kali/.nvm/versions/node/v18.4.0/lib/node_modules/typescript/lib/typingSafeList.json', types map path /home/kali/.nvm/versions/node/v18.4.0/lib/node_modules/typescript/lib/typesMap.json
+[14:36:41.871] Processing cache location '/home/kali/.cache/typescript/4.7'
+[14:36:41.871] Trying to find '/home/kali/.cache/typescript/4.7/package.json'...
+[14:36:41.872] Loaded content of '/home/kali/.cache/typescript/4.7/package.json': {"private":true,"dependencies":{"types-registry":"^0.1.607"}}
+[14:36:41.872] Loaded content of '/home/kali/.cache/typescript/4.7/package-lock.json'
+[14:36:41.872] Finished processing cache location '/home/kali/.cache/typescript/4.7'
+[14:36:41.872] Process id: 4111
+[14:36:41.872] NPM location: /home/kali/.nvm/versions/node/v18.4.0/bin/npm (explicit '--npmLocation' not  provided)
+[14:36:41.873] validateDefaultNpmLocation: false
+[14:36:41.873] Npm config file: /home/kali/.cache/typescript/4.7/package.json
+[14:36:41.873] Updating types-registry npm package...
+[14:36:41.873] Exec: /home/kali/.nvm/versions/node/v18.4.0/bin/npm install --ignore-scripts types-registry@latest
+[14:36:43.702]     Succeeded. stdout:
+    
+    up to date, audited 2 packages in 1s
+
+found 0 vulnerabilities
+
+[14:36:43.703] Updated types-registry npm package

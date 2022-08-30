@@ -1,6 +1,5 @@
 package com.payman.controller;
 
-import com.payman.dto.response.GetACustomerDetails;
 import com.payman.dto.response.GetAllCustomer;
 import com.payman.dto.response.GetAllEmployerAdmin;
 import com.payman.service.StatsService;

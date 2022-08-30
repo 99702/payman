@@ -6,7 +6,6 @@ import com.payman.dto.response.RegisterAAccountDTOResponse;
 import com.payman.entity.Account;
 import com.payman.entity.Balance;
 import com.payman.entity.Customer;
-import com.payman.enumeration.Gender;
 import com.payman.errors.PaymanException;
 import com.payman.repository.AccountRepository;
 import com.payman.repository.BalanceRepository;
