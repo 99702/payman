@@ -5,4 +5,4 @@ export interface CustomerDetailDto {
     full_name: string,
     gender: string,
     mobile: string,
-}  
+}

@@ -65,37 +65,6 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-
-//    @Column(name="parent_name",  nullable = false)
-//    @NotBlank(message = "parent name cannot be blank")
-//    @Size(min = 2, max = 32, message = "parent name must be between 2 and 32 characters long")
-//    private String parentName;
-
-//    @Column(name="address",  nullable = false)
-//    @NotBlank(message = "address cannot be blank")
-//    @Size(min = 2, max = 32, message = "address must be between 2 and 32 characters long")
-//    private String address;
-
-//    @Column(name="district",  nullable = false)
-//    @NotBlank(message = "district cannot be blank")
-//    @Size(min = 2, max = 32, message = "district must be between 2 and 32 characters long")
-//    private String district;
-
-
-//    @Column(name="email", unique = true, nullable = false)
-//    @NotBlank(message = "district cannot be blank")
-//    private String email;
-
-    //    @Column(name="fname")
-//    @NotBlank(message = "full name cannot be blank")
-//    @Size(min = 2, max = 32, message = "full name must be between 2 and 32 characters long")
-//    private String fname;
-//
-//
-//    private String mname;
-//
-//    @Column(name="lname",  nullable = false)
-//    @NotBlank(message = "last name cannot be blank")
-//    @Size(min = 2, max = 32, message = "last name must be between 2 and 32 characters long")
-//    private String lname;
+    @Column(name="reset_password_token")
+    private String resetPasswordToken;
 }

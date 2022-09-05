@@ -1,6 +1,8 @@
 package com.payman.service.impl;
 
 import com.payman.dto.request.RegisterACustomerDTO;
+import com.payman.dto.request.ResetPasswordRequestDTO;
+import com.payman.dto.response.ResetPasswordResponseDto;
 import com.payman.dto.request.UpdateCustomerRequest;
 import com.payman.dto.response.GetACustomerDetails;
 import com.payman.dto.response.RegisterACustomerDTOResponse;
@@ -58,6 +60,8 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.save(customer);
         return this.setterForRegisterACustomerDTOResponse("Registered successfully ", "success", customer.getFullName());
     }
+
+
     @Override
     public GetACustomerDetails getCustomerFromAccNo(String accountNumber) {
         try{
@@ -124,7 +128,6 @@ public class CustomerServiceImpl implements CustomerService {
 
             // now save the loggedin user
             customerRepository.save(loggedinCustomer);
-
             return this.setterForUpdateSuccess(aes.decryptText("AES",loggedinCustomer.getMobile())+ " is updated successfully.");
         } catch (Exception e){
             System.out.println(e);
@@ -132,6 +135,49 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
+    @Override
+    public String savePasswordResetToken(String mobile, String token) {
+        try{
+            Customer customer = customerRepository.fetchByMobileExact(aes.encryptText("AES",mobile));
+            customer.setResetPasswordToken(aes.encryptText("AES" ,token));
+            customerRepository.save(customer);
+
+            return  "Success";
+
+        } catch (Exception e){
+            throw new PaymanException("Something went wrong :(");
+        }
+
+    }
+    @Override
+    public ResetPasswordResponseDto resetPasswordDone(ResetPasswordRequestDTO resetPasswordRequestDTO, String token) {
+        try {
+           Customer customer = customerRepository.getCustomerByResetPasswordToken(aes.encryptText("AES",token)) ;
+           System.out.println(customer);
+
+           if(customer == null){
+               throw new PaymanException("Invalid token");
+           }
+
+            // check if New password and database password matches, then reject it
+//            String decodedPasswordHash = aes.decryptText("AES", customer.getPassword());
+//            boolean result = passwordEncoder.matches(resetPasswordRequestDTO.getNewPassword(), decodedPasswordHash);
+//
+//            if(result){ // if database password and request password
+//                throw new PaymanException("Please choose different password");
+// }
+
+            // change password and delete that token from user
+           customer.setPassword(aes.encryptText("AES",passwordEncoder.encode(resetPasswordRequestDTO.getNewPassword())));
+           customer.setResetPasswordToken(null);
+           customerRepository.save(customer);
+
+           return this.setterForResetPasswordResponseDto();
+        }catch (Exception e){
+            throw new PaymanException(e.getMessage());
+
+        }
+    }
     private RegisterACustomerDTOResponse setterForRegisterACustomerDTOResponse(String message, String status, String fullName){
         RegisterACustomerDTOResponse registerACustomerDTOResponse = new RegisterACustomerDTOResponse();
         registerACustomerDTOResponse.setMessage(message);
@@ -156,5 +202,10 @@ public class CustomerServiceImpl implements CustomerService {
         getACustomerDetails.setCitizenship_number(customer.getCitizenshipNo());
         getACustomerDetails.setDob(customer.getDob());
         return getACustomerDetails;
+    }
+    private ResetPasswordResponseDto setterForResetPasswordResponseDto(){
+        ResetPasswordResponseDto resetPasswordResponseDto = new ResetPasswordResponseDto();
+        resetPasswordResponseDto.setMessage("Successful");
+        return resetPasswordResponseDto;
     }
 }

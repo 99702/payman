@@ -8,4 +8,7 @@ import java.time.LocalDateTime;
 public class LoginHistoryResponse {
     private String address;
     private LocalDateTime createdAt;
+    private Integer totalPageSize;
+    private Long totalElements;
+
 }

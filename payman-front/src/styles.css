@@ -13,6 +13,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 body{
   /*   background: white url("./assets/black.png"); */
-  background: white url("./assets/back.jpeg");
+  /* background: white url("./assets/back.jpeg"); */
   backdrop-filter: blur(3px);
 }

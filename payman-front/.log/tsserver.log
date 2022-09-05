@@ -1,6 +1,130 @@
-Info 0    [20:59:09.975] Starting TS Server
-Info 1    [20:59:09.977] Version: 4.7.4
-Info 2    [20:59:09.977] Arguments: /home/kali/.nvm/versions/node/v18.4.0/bin/node /home/kali/.nvm/versions/node/v18.4.0/lib/node_modules/typescript/lib/tsserver.js --logFile /home/kali/Code/payman/payman-front/.log/tsserver.log --logVerbosity info --cancellationPipeName /tmp/95a7cc35d176ce0662881f04f8d82d15/tscancellation*
-Info 3    [20:59:09.977] Platform: linux NodeVersion: 18 CaseSensitive: true
-Info 4    [20:59:09.977] ServerMode: undefined syntaxOnly: false hasUnknownServerMode: undefined
-Info 5    [20:59:10.026] Format host information updated
+Info 0    [15:08:46.296] Starting TS Server
+Info 1    [15:08:46.298] Version: 4.7.4
+Info 2    [15:08:46.298] Arguments: /home/kali/.nvm/versions/node/v18.4.0/bin/node /home/kali/.nvm/versions/node/v18.4.0/lib/node_modules/typescript/lib/tsserver.js --logFile /home/kali/Code/payman/payman-front/.log/tsserver.log --logVerbosity info --cancellationPipeName /tmp/6416f7132ec76918cdf6f0de52a44ae4/tscancellation*
+Info 3    [15:08:46.298] Platform: linux NodeVersion: 18 CaseSensitive: true
+Info 4    [15:08:46.298] ServerMode: undefined syntaxOnly: false hasUnknownServerMode: undefined
+Info 5    [15:08:46.325] Format host information updated
+Info 6    [15:08:46.348] Search path: /home/kali/Code/payman/payman-front/src/app/services
+Info 7    [15:08:46.353] For info: /home/kali/Code/payman/payman-front/src/app/services/login.service.ts :: Config file name: /home/kali/Code/payman/payman-front/tsconfig.json
+Info 8    [15:08:46.355] Creating configuration project /home/kali/Code/payman/payman-front/tsconfig.json
+Info 9    [15:08:46.427] Config: /home/kali/Code/payman/payman-front/tsconfig.json : {
+ "rootNames": [
+  "/home/kali/Code/payman/payman-front/src/main.ts",
+  "/home/kali/Code/payman/payman-front/src/polyfills.ts",
+  "/home/kali/Code/payman/payman-front/src/test.ts",
+  "/home/kali/Code/payman/payman-front/src/app/app-routing.module.ts",
+  "/home/kali/Code/payman/payman-front/src/app/app.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/app.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/app.module.ts",
+  "/home/kali/Code/payman/payman-front/src/app/components/footer/footer.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/components/footer/footer.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/components/navbar/navbar.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/components/navbar/navbar.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/dto/CustomerDetailDto.ts",
+  "/home/kali/Code/payman/payman-front/src/app/dto/CustomerListDto.ts",
+  "/home/kali/Code/payman/payman-front/src/app/dto/CustomerUpdateRequestDto.ts",
+  "/home/kali/Code/payman/payman-front/src/app/dto/EaListDto.ts",
+  "/home/kali/Code/payman/payman-front/src/app/dto/TransactionHistory.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/register.service.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/register.service.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/admin/admin-list/admin-list.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/admin/admin-list/admin-list.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/admin-dashboard/admin-dashboard.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/admin-dashboard/admin-dashboard.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/customer/customer-add/customer-add.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/customer/customer-add/customer-add.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/customer/customer-list/customer-list.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/customer/customer-list/customer-list.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/employer/employer-list/employer-list.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/employer/employer-list/employer-list.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/main/main.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/admin/main/main.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/balance-transfer/balance-transfer.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/balance-transfer/balance-transfer.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/customer-dashboard/customer-dashboard.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/customer-dashboard/customer-dashboard.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/customer-profile/customer-profile.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/customer-profile/customer-profile.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/customer-unregistered/customer-unregistered.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/customer-unregistered/customer-unregistered.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/dialog/dialog.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/dialog/dialog.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/login-history/login-history.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/login-history/login-history.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/transaction-history/transaction-history.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/customer/transaction-history/transaction-history.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/employer/customer/customer-add-account/customer-add-account.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/employer/customer/customer-add-account/customer-add-account.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/employer/customer-details/customer-details.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/employer/customer-details/customer-details.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/employer/employer-dashboard/employer-dashboard.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/employer/employer-dashboard/employer-dashboard.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/home/home.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/home/home.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/login/ipDto.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/login/login.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/login/login.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/register/register.component.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/pages/register/register.component.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/account.service.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/account.service.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/admin.guard.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/admin.guard.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/auth.interceptor.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/authenticated.guard.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/authenticated.guard.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/balance.service.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/balance.service.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/customer.guard.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/customer.guard.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/customer.service.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/customer.service.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/employer.guard.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/employer.guard.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/helper.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/login.service.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/login.service.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/redirector.guard.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/redirector.guard.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/transaction.service.spec.ts",
+  "/home/kali/Code/payman/payman-front/src/app/services/transaction.service.ts",
+  "/home/kali/Code/payman/payman-front/src/environments/environment.prod.ts",
+  "/home/kali/Code/payman/payman-front/src/environments/environment.ts"
+ ],
+ "options": {
+  "baseUrl": "/home/kali/Code/payman/payman-front",
+  "outDir": "/home/kali/Code/payman/payman-front/dist/out-tsc",
+  "forceConsistentCasingInFileNames": true,
+  "strict": true,
+  "noImplicitOverride": true,
+  "noPropertyAccessFromIndexSignature": true,
+  "noImplicitReturns": true,
+  "noFallthroughCasesInSwitch": true,
+  "sourceMap": true,
+  "declaration": false,
+  "downlevelIteration": true,
+  "experimentalDecorators": true,
+  "moduleResolution": 2,
+  "importHelpers": true,
+  "target": 7,
+  "module": 6,
+  "lib": [
+   "lib.es2020.d.ts",
+   "lib.dom.d.ts"
+  ],
+  "configFilePath": "/home/kali/Code/payman/payman-front/tsconfig.json"
+ }
+}
+Info 10   [15:08:47.604] Starting updateGraphWorker: Project: /home/kali/Code/payman/payman-front/tsconfig.json
+Info 11   [15:10:56.770] Finishing updateGraphWorker: Project: /home/kali/Code/payman/payman-front/tsconfig.json Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 129165.85618800111ms
+Info 12   [15:10:56.779] Project '/home/kali/Code/payman/payman-front/tsconfig.json' (Configured)
+Info 13   [15:10:56.779] 	Files (438)
+
+Info 14   [15:10:56.779] -----------------------------------------------
+Info 15   [15:10:56.895] AutoImportProviderProject: found 3 root files in 3 dependencies in 108.82823900133371 ms
+Info 16   [15:10:56.898] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
+Info 17   [15:10:57.142] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 244.09938499890268ms
+Info 18   [15:10:57.143] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 19   [15:10:57.143] 	Files (192)
+
+Info 20   [15:10:57.143] -----------------------------------------------

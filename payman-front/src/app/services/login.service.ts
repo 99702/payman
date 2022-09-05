@@ -102,7 +102,7 @@ export class LoginService {
     }
 
     // get login history of loggedin user
-    public getLoginHistory() {
-        return this.http.get(`${baseUrl}/auth/history`);
+    public getLoginHistory(pageNo: number) {
+        return this.http.get(`${baseUrl}/auth/history?pageNo=${pageNo}`);
     }
 }

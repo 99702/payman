@@ -1,12 +1,12 @@
-<div>
+<div class="dash">
 <mat-card>
   <mat-card-title></mat-card-title>
   <mat-card-content>
 
     <form [formGroup]="form" (ngSubmit)="updateCustomer()"> <!---->
-     <p *ngIf="error.status" class="error">
-          {{ error.message }}
-     </p>
+      <p *ngIf="error.status" class="error">
+	{{ error.message }}
+      </p>
 
      <!-- fullname -->
      <p>

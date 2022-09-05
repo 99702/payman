@@ -15,9 +15,9 @@ export class BalanceService {
             "ip": "192.168.1.1",
             "latitude": "1.000",
             "longitude": "0.9555",
-            "screen": "203x104",
-            "clientDateTime": "2022-03-11",
-            "language": "Nepali",
+            "screen": `${screen.width}x${screen.height}`,
+            "clientDateTime": String(new Date()),
+            "language": `${window.navigator.languages}`,
         })
         return this.http.post(`${baseUrl}/balance/deposit?mobileNumber=${mobNo}`, data, { headers: headers });
     }
@@ -29,9 +29,9 @@ export class BalanceService {
             "ip": "192.168.1.1",
             "latitude": "1.000",
             "longitude": "0.9555",
-            "screen": "203x104",
-            "clientDateTime": "2022-03-11",
-            "language": "Nepali",
+            "screen": `${screen.width}x${screen.height}`,
+            "clientDateTime": String(new Date()),
+            "language": `${window.navigator.languages}`,
         })
         return this.http.get(`${baseUrl}/balance/check`, { headers: headers });
     }

@@ -21,8 +21,6 @@ export class CustomerListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
-
     }
     clicker(row: any) {
         this.router.navigate([`/employer/customer/registered/detail/${row.account_number}`]);

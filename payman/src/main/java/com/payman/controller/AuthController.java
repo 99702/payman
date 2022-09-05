@@ -30,8 +30,8 @@ public class AuthController {
     }
 
     @GetMapping("history")
-    private List<LoginHistoryResponse> getLoginHistory(HttpServletRequest request){
-        return authService.getLoginHistory(request);
+    private List<LoginHistoryResponse> getLoginHistory(HttpServletRequest request, @RequestParam(value = "pageNo", required = false) Integer pageNo){
+        return authService.getLoginHistory(request, pageNo);
     }
 
 

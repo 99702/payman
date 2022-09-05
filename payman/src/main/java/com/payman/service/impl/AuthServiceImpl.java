@@ -16,6 +16,9 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -108,7 +111,13 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public List<LoginHistoryResponse> getLoginHistory(HttpServletRequest request) {
+    public List<LoginHistoryResponse> getLoginHistory(HttpServletRequest request, Integer pageNo) {
+        int pageSize=5;
+        if(pageNo == null || pageNo == 0){
+            pageNo = 1;
+        }
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+
         // get customer id of currently loggedin user
         String authorizationHeader = request.getHeader("Authorization");
         try{
@@ -118,13 +127,12 @@ public class AuthServiceImpl implements AuthService {
                     .parseClaimsJws(jwt)
                     .getBody();
             Long checkCustomerId = Long.valueOf((Integer) claims.get("customerId")); // we get customer id of current loggedin user
-            return this.setterForLoginHistory(customerRepository.getCustomerLoginHistory(checkCustomerId));
+            Page<Ip> loginHistoryList  = customerRepository.getCustomerLoginHistory(checkCustomerId, pageable);
+            return this.setterForLoginHistory(loginHistoryList);
         } catch (Exception e){
             System.out.println(e);
             throw new PaymanException("Cannot get the current user");
         }
-
-
     }
 
     private LoginResponseDTO setterForLoginResponseDTO(Customer customer, String message, String token){
@@ -147,12 +155,14 @@ public class AuthServiceImpl implements AuthService {
         return currentUserResponseDTO;
     }
 
-    private List<LoginHistoryResponse> setterForLoginHistory(List<Ip> ips){
+    private List<LoginHistoryResponse> setterForLoginHistory(Page<Ip> ips){
         List<LoginHistoryResponse> loginHistoryResponses = new ArrayList<>();
         for(Ip ip: ips){
             LoginHistoryResponse loginHistoryResponse = new LoginHistoryResponse();
             loginHistoryResponse.setAddress(ip.getAddress());
             loginHistoryResponse.setCreatedAt(ip.getCreatedAt());
+            loginHistoryResponse.setTotalPageSize(ips.getTotalPages());
+            loginHistoryResponse.setTotalElements(ips.getTotalElements());
             loginHistoryResponses.add(loginHistoryResponse);
         }
         return loginHistoryResponses;

@@ -13,5 +13,5 @@ public interface AuthService {
 
     CurrentUserResponseDTO getCurrentLoggedinUser(HttpServletRequest request);
 
-    List<LoginHistoryResponse> getLoginHistory(HttpServletRequest request);
+    List<LoginHistoryResponse> getLoginHistory(HttpServletRequest request, Integer pageNo);
 }

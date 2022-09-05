@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { MatListModule } from '@angular/material/list'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSelectModule } from '@angular/material/select'
@@ -39,6 +40,7 @@ import { TransactionHistoryComponent } from './pages/customer/transaction-histor
 import { LoginHistoryComponent } from './pages/customer/login-history/login-history.component';
 import { DialogComponent } from './pages/customer/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { CustomerDetailsComponent } from './pages/employer/customer-details/customer-details.component';
 import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component'
 
@@ -68,6 +70,7 @@ import { CustomerProfileComponent } from './pages/customer/customer-profile/cust
     ],
 
     imports: [
+        MatPaginatorModule,
         MatDialogModule,
         BrowserModule,
         MatTableModule,
@@ -88,7 +91,8 @@ import { CustomerProfileComponent } from './pages/customer/customer-profile/cust
         MatFormFieldModule,
         MatNativeDateModule,
         MatSelectModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatProgressBarModule,
     ],
     providers: [
         authInterceptorProviders,
