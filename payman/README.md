@@ -1,2 +1,2 @@
 # payman
-Bank system - Payman 
+Bank system prototype  - Payman

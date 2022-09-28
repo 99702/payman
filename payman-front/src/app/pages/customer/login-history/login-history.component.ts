@@ -5,7 +5,8 @@ import { LoginService } from 'src/app/services/login.service';
 @Component({
     selector: 'app-login-history',
     templateUrl: './login-history.component.html',
-    styleUrls: ['./login-history.component.css']
+    styleUrls: ['./login-history.component.css'
+    ]
 })
 export class LoginHistoryComponent implements OnInit {
     histories = null;
@@ -36,7 +37,6 @@ export class LoginHistoryComponent implements OnInit {
             }
         )
     }
-
     pageChanged(event: PageEvent) {
         console.log(event.pageIndex + 1);
         this.pageNo = event.pageIndex + 1
